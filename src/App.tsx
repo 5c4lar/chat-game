@@ -6,7 +6,7 @@ import { LevelPage } from './pages/LevelPage';
 import { AboutPage } from './pages/AboutPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { ProgressPage } from './pages/ProgressPage';
-import { AITestPage } from './pages/AITestPage';
+import AITestPage from './pages/AITestPage';
 import { GlobalStyle, theme } from './components/StyledComponents';
 
 function App() {

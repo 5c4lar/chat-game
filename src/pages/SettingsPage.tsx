@@ -6,7 +6,6 @@ import {
   Text, 
   Card, 
   Button, 
-  FlexRow 
 } from '../components/StyledComponents';
 import { useGameContext } from '../context/GameContext';
 import styled from 'styled-components';

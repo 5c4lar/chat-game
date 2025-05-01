@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { FiHome, FiInfo, FiSettings, FiAward, FiActivity } from 'react-icons/fi';
 import { useGameContext } from '../context/GameContext';
 import { AppContainer, Button, FlexRow } from './StyledComponents';
+import cyberspaceLogo from '../assets/cyberspace-logo.png';
 
 interface LayoutProps {
   children: ReactNode;
@@ -31,9 +32,17 @@ const Nav = styled(FlexRow)`
 `;
 
 const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   font-size: 1.5rem;
   font-weight: 700;
   color: ${props => props.theme.colors.secondary};
+`;
+
+const LogoImage = styled.img`
+  height: 70px; /* Increased from 50px to 70px */
+  width: auto;
 `;
 
 const ContentContainer = styled.main`
@@ -69,7 +78,10 @@ export const Layout = ({ children, showHeader = true, showFooter = true }: Layou
       {showHeader && (
         <Header>
           <Nav>
-            <Logo>AI星舰守护者</Logo>
+            <Logo>
+              <span>AI星舰守护者</span>
+              <LogoImage src={cyberspaceLogo} alt="网络空间安全防御全国重点实验室" />
+            </Logo>
             <FlexRow>
               <Button onClick={() => navigate('/')}><FiHome /></Button>
               <Button onClick={() => navigate('/progress')}><FiAward /></Button>

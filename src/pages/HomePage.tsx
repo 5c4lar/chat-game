@@ -1,13 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { FiChevronRight, FiStar, FiCpu, FiShield, FiCode } from 'react-icons/fi';
+import { FiChevronRight, FiStar, FiCpu, FiShield } from 'react-icons/fi';
 import { Layout } from '../components/Layout';
 import { 
-  Heading, 
   Text, 
   Card, 
   Button, 
-  FlexRow,
   SubHeading,
   Spacer
 } from '../components/StyledComponents';

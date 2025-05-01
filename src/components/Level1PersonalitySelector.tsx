@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FiCode, FiHeart, FiShield } from 'react-icons/fi';
 import { useGameContext } from '../context/GameContext';
-import { Card, Button, Heading, Text, FlexColumn, SubHeading, ConsoleText } from './StyledComponents';
+import { Card, Button, Heading, Text, FlexRow, SubHeading, ConsoleText } from './StyledComponents';
 import { AIPersonalityMode } from '../types/game';
 
 const PersonalityCard = styled(Card)<{ selected: boolean }>`
@@ -11,6 +11,9 @@ const PersonalityCard = styled(Card)<{ selected: boolean }>`
   transition: all 0.3s ease;
   transform: ${props => props.selected ? 'translateY(-10px)' : 'none'};
   border: 2px solid ${props => props.selected ? props.theme.colors.secondary : 'rgba(255, 255, 255, 0.1)'};
+  flex: 1;
+  min-width: 200px;
+  max-width: 350px;
   
   &:hover {
     transform: translateY(-5px);
@@ -35,6 +38,14 @@ const ResponseContainer = styled.div`
   margin-top: 1rem;
   padding: 1rem;
   border-left: 3px solid ${props => props.theme.colors.secondary};
+`;
+
+const CardsContainer = styled(FlexRow)`
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 interface AIResponse {
@@ -84,7 +95,7 @@ export const Level1PersonalitySelector = () => {
         这将决定AI如何回应您的问题和指令。
       </Text>
       
-      <FlexColumn>
+      <CardsContainer>
         <PersonalityCard
           selected={selectedMode === 'scientific'}
           onClick={() => handleSelect('scientific')}
@@ -120,7 +131,7 @@ export const Level1PersonalitySelector = () => {
             减少冗余内容，高效执行任务。
           </Text>
         </PersonalityCard>
-      </FlexColumn>
+      </CardsContainer>
       
       <Button 
         disabled={!selectedMode}
